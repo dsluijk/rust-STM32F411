@@ -12,6 +12,10 @@ panic-halt = "0.2.0"
 panic-abort= "0.3.2"
 rtt-target = { version = "0.2.0", features = ["cortex-m"] }
 
+[dependencies.stm32f4xx-hal]
+version = "0.8.3"
+features = ["rt", "stm32f411"]
+
 [[bin]]
 name = "new"
 test = false
