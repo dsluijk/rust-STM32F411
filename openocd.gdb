@@ -1,6 +1,5 @@
 target extended-remote :3333
 
-monitor reset halt
 set print asm-demangle on
 set backtrace limit 32
 
@@ -10,11 +9,12 @@ break rust_begin_unwind
 break main
 
 monitor arm semihosting enable
+monitor reset halt
 
 # # send captured ITM to the file itm.fifo
 # # (the microcontroller SWO pin must be connected to the programmer SWO pin)
 # # 8000000 must match the core clock frequency
-monitor tpiu config internal itm.txt uart off 16000000
+# monitor tpiu config internal itm.txt uart off 16000000
 
 # # OR: make the microcontroller SWO pin output compatible with UART (8N1)
 # # 8000000 must match the core clock frequency
